@@ -1,4 +1,4 @@
-const { executeQuery, executeQueryOne } = require('../utils');
+/* const { executeQuery, executeQueryOne } = require('../utils');
 
 
 
@@ -18,6 +18,4 @@ const getById = (usuarioId) => {
 
 
 
-
-
-module.exports = { create, getByEmail, getById }
+module.exports = { create, getByEmail, getById } */

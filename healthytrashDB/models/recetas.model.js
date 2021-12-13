@@ -1,4 +1,4 @@
-const { executeQuery, executeQueryOne } = require('../utils');
+/* const { executeQuery, executeQueryOne } = require('../utils');
 
 
 const getAll = () => {
@@ -14,4 +14,4 @@ const create = ({ nombre, ingredientes, fotos, descripcion, fecha_inscripcion })
 
 
 
-module.exports = { getAll, create }
+module.exports = { getAll, create } */

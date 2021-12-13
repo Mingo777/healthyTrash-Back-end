@@ -7,4 +7,4 @@ router.get('/', (req, res) => {
     res.end('Peticiones GET sobre localHost 3000')
 })
 
-module.exports = router;
+module.exports = router; 
