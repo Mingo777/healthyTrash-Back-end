@@ -1,7 +1,7 @@
 // api/usuarios
 // fichero que maneja la ruta de los usuarios
 const router = require('express').Router();
-const { getAll, create, getById } = require('../../models/usuarios.model');
+const { getAll, create, getById, deleteById } = require('../../models/usuarios.model');
 
 
 router.get('/', async (req, res) => {
@@ -32,7 +32,8 @@ router.post('/', async (req, res) => {
     try {
         console.log(req.body);
         const result = await create(req.body)
-        res.json(result);
+        const resultId = await getById(result.insertId)
+        res.json(resultId);
     } catch (err) {
         res.json({ error: err.message })
     }
@@ -42,8 +43,13 @@ router.put('/', (req, res) => {
     res.send('Peticiones PUT sobre localHost 3000')
 });
 
-router.delete('/', (req, res) => {
-    res.send('Peticiones DELETE sobre localHost 3000')
+router.delete('/:usuarioId', async (req, res) => {
+    try {
+        const result = await deleteById(req.params.usuarioId);
+        res.json(result);
+    } catch (err) {
+        res.json({ error: err.message })
+    }
 });
 
 module.exports = router; 

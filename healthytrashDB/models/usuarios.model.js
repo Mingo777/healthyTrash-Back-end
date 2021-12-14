@@ -19,11 +19,27 @@ const create = ({ nombre, apellidos, email, password, username }) => {
 }
 
 const getById = (usuarioId) => {
-    return executeQueryOne('SELECT * FROM usuarios WHERE id = ?', [usuarioId]);
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM usuarios WHERE id = ?', [usuarioId], (err, result) => {
+            if (err) return reject(err);
+            if (result.length === 0) return resolve(null);
+            resolve(result[0]);
+        })
+    })
 }
 
 
-module.exports = { getAll, create, getById }
+const deleteById = (usuarioId) => {
+    return new Promise((resolve, reject) => {
+        db.query('delete from usuarios where id = ?', [usuarioId], (err, result) => {
+            if (err) return reject(err);
+            resolve(result);
+        })
+    })
+}
+
+
+module.exports = { getAll, create, getById, deleteById }
 
 
 
