@@ -3,10 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const fs = require('fs');
+const dayjs = require('dayjs')
+
 
 
 const apiRouter = require('./routes/api')
-
+// config de la BD
+require('./dbConfig');
 var app = express();
 
 // view engine setup

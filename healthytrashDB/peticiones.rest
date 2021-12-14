@@ -1,1 +1,30 @@
+
 GET http://localhost:3000/api/usuarios
+
+###
+GET http://localhost:3000/api/usuarios/3
+###
+
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+    "nombre": "Juan",
+    "apellidos": "Garcia",
+    "email": "juan@gmail.com",
+    "password": "123456",
+    "username": "Juan777"
+}
+
+
+###
+
+PUT http://localhost:3000/api/usuarios
+
+###
+
+DELETE http://localhost:3000/api/usuarios
+
+###
+
+GET http://localhost:3000/api/recetas
