@@ -7,16 +7,20 @@ GET http://localhost:3000/api/usuarios
 GET http://localhost:3000/api/usuarios/1
 ### // registrar nuevo usuario
 
-POST http://localhost:3000/api/usuarios
+POST http://localhost:3000/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "nombre": "Mario",
-    "apellidos": "Pérez",
-    "email": "Mar@gmail.com",
+    "nombre": "Jose",
+    "apellidos": "Arcos",
+    "email": "Jose@gmail.com",
     "password": "12345",
-    "username": "Mario777"
+    "username": "Jose777"
 }
+
+###
+
+POST http://localhost:3000/api/usuarios/login
 
 
 ### // actualiza un usuario con los datos que reciba en el body
@@ -34,7 +38,7 @@ Content-Type: application/json
 
 ### //borrar usuario por id
 
-DELETE http://localhost:3000/api/usuarios/11
+DELETE http://localhost:3000/api/usuarios/12
 
 // FIN DE USUARIOS
 
@@ -92,14 +96,14 @@ DELETE http://localhost:3000/api/recetas/7
 
 GET http://localhost:3000/api/categorias
 
-###
+### //obtiene las categorias por id
 
 GET http://localhost:3000/api/categorias/2
 
-###
+### // obtiene las recetas por numero de categoria
 GET http://localhost:3000/api/recetas/categoria/1
 
-###
+### // crear una nueva categoria
 
 POST http://localhost:3000/api/categorias
 Content-Type: application/json
@@ -109,7 +113,7 @@ Content-Type: application/json
 }
 
 
-###
+### // borra una categoria por ID
 
 DELETE http://localhost:3000/api/categorias/8
 

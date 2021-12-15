@@ -1,9 +1,10 @@
 // api/usuarios
 // fichero que maneja la ruta de los usuarios
 const router = require('express').Router();
+const bcrypt = require('bcryptjs');
 const { getAll, create, getById, deleteById, update } = require('../../models/usuarios.model');
 
-
+//TODO // poner aqui middleware
 router.get('/', async (req, res) => {
     try {
         const result = await getAll();
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
         res.json({ error: err.message });
     }
 });
-
+//TODO // poner aqui middleware
 router.get('/:usuarioId', async (req, res) => {
     let result;
     try {
@@ -27,9 +28,15 @@ router.get('/:usuarioId', async (req, res) => {
     res.json(result);
 });
 
-router.post('/', async (req, res) => {
+
+router.post('/registro', async (req, res) => {
     try {
-        console.log(req.body);
+        const passwordEnc = bcrypt.hashSync(req.body.password);
+        req.body.password = passwordEnc
+    } catch (err) {
+        res.json({ error: err.message })
+    }
+    try {
         const result = await create(req.body)
         const resultId = await getById(result.insertId)
         res.json(resultId);
@@ -38,6 +45,14 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+
+router.post('/login', (req, res) => {
+    res.send('Funciona ruta login')
+})
+
+
+//TODO // poner aqui middleware
 router.put('/:usuarioId', async (req, res) => {
     try {
         const result = await update(req.params.usuarioId, req.body);
@@ -46,7 +61,7 @@ router.put('/:usuarioId', async (req, res) => {
         res.json({ error: err.message })
     }
 });
-
+//TODO // poner aqui middleware
 router.delete('/:usuarioId', async (req, res) => {
     try {
         const result = await deleteById(req.params.usuarioId);
