@@ -1,22 +1,72 @@
 // api/recetas
+
 // fichero que maneja la ruta de las recetas
 const router = require('express').Router();
+const { getAllRecetas, getRecetasById, createRecetas, deleteRecetasById, updateRecetas, getRecetasByCategoria } = require('../../models/recetas.model');
 
 
-router.get('/', (req, res) => {
-    res.send('Peticiones GET sobre localHost 3000/api/recetas')
+router.get('/', async (req, res) => {
+    try {
+        const result = await getAllRecetas();
+        res.json(result);
+    } catch (err) {
+        res.json({ error: err.message });
+    }
 });
 
-router.post('/', (req, res) => {
-    res.send('Peticiones POST sobre localHost 3000')
+router.get('/:recetasId', async (req, res) => {
+    let result;
+    try {
+        result = await getRecetasById(req.params.recetasId);
+    } catch (err) {
+        res.json({ error: err.message });
+    }
+
+    if (!result) {
+        return res.json({ error: 'El id no es correcto' });
+    }
+    res.json(result);
 });
 
-router.put('/', (req, res) => {
-    res.send('Peticiones PUT sobre localHost 3000')
+router.get('/categoria/:categoriaId', async (req, res) => {
+    let result;
+    try {
+        result = await getRecetasByCategoria(req.params.categoriaId);
+        res.json(result);
+
+    } catch (err) {
+        res.json({ error: err.message })
+    }
+})
+
+router.post('/', async (req, res) => {
+    try {
+        const result = await createRecetas(req.body);
+        const resultId = await getRecetasById(result.insertId)
+        res.json(resultId);
+    } catch (err) {
+        res.json({ error: err.message })
+    }
 });
 
-router.delete('/', (req, res) => {
-    res.send('Peticiones DELETE sobre localHost 3000')
+
+
+router.put('/:recetasId', async (req, res) => {
+    try {
+        const result = await updateRecetas(req.params.recetasId, req.body);
+        res.json(result);
+    } catch (err) {
+        res.json({ error: err.message })
+    }
 });
+
+router.delete('/:recetasId', async (req, res) => {
+    try {
+        const result = await deleteRecetasById(req.params.recetasId);
+        res.json(result);
+    } catch (err) {
+        res.json({ error: err.message })
+    }
+})
 
 module.exports = router; 

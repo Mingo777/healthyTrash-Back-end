@@ -17,3 +17,7 @@ const executeQueryOne = (query, data = []) => {
         })
     });
 }
+
+module.exports = {
+    executeQuery, executeQueryOne
+}

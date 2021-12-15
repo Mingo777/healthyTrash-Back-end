@@ -1,45 +1,28 @@
-
+const { executeQuery, executeQueryOne } = require('../utils')
 
 const getAll = () => {
-    return new Promise((resolve, reject) => {
-        db.query('select * from usuarios', (err, result) => {
-            if (err) return reject(err);
-            resolve(result);
-        });
-    });
-}
+    return executeQuery('select * from usuarios');
+};
 
 const create = ({ nombre, apellidos, email, password, username }) => {
-    return new Promise((resolve, reject) => {
-        db.query('INSERT INTO usuarios(nombre,apellidos,email,password,username) VALUES(?,?,?,?,?)', [nombre, apellidos, email, password, username], (err, result) => {
-            if (err) return reject(err);
-            resolve(result);
-        })
-    })
-}
+    return executeQuery('INSERT INTO usuarios(nombre,apellidos,email,password,username) VALUES(?,?,?,?,?)', [nombre, apellidos, email, password, username]);
+};
 
 const getById = (usuarioId) => {
-    return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM usuarios WHERE id = ?', [usuarioId], (err, result) => {
-            if (err) return reject(err);
-            if (result.length === 0) return resolve(null);
-            resolve(result[0]);
-        })
-    })
-}
+    return executeQueryOne('SELECT * FROM usuarios WHERE id = ?', [usuarioId]);
+};
+
+const update = (usuarioId, { nombre, apellidos, email, password, username }) => {
+    return executeQuery('UPDATE usuarios SET nombre =?,apellidos = ?,email = ?,password = ?,username = ? WHERE id = ? ', [nombre, apellidos, email, password, username, usuarioId]);
+};
 
 
 const deleteById = (usuarioId) => {
-    return new Promise((resolve, reject) => {
-        db.query('delete from usuarios where id = ?', [usuarioId], (err, result) => {
-            if (err) return reject(err);
-            resolve(result);
-        })
-    })
-}
+    return executeQuery('delete from usuarios where id = ?', [usuarioId]);
+};
 
 
-module.exports = { getAll, create, getById, deleteById }
+module.exports = { getAll, create, getById, deleteById, update }
 
 
 

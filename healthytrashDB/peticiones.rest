@@ -1,3 +1,5 @@
+
+//USUARIOS
 //obtener todos los usuarios
 GET http://localhost:3000/api/usuarios
 
@@ -9,22 +11,111 @@ POST http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 {
+    "nombre": "Mario",
+    "apellidos": "Pérez",
+    "email": "Mar@gmail.com",
+    "password": "12345",
+    "username": "Mario777"
+}
+
+
+### // actualiza un usuario con los datos que reciba en el body
+
+PUT http://localhost:3000/api/usuarios/10
+Content-Type: application/json
+
+{
     "nombre": "Carmen",
-    "apellidos": "Garcia",
+    "apellidos": "Anguita",
     "email": "car@gmail.com",
     "password": "12345",
     "username": "Carmen777"
 }
 
-
-###
-
-PUT http://localhost:3000/api/usuarios
-
 ### //borrar usuario por id
 
-DELETE http://localhost:3000/api/usuarios/6
+DELETE http://localhost:3000/api/usuarios/11
+
+// FIN DE USUARIOS
+
+//RECETAS
+
+### // devuelve todas las recetas
+
+GET http://localhost:3000/api/recetas
+
+###/devuelve la receta por su id
+
+GET http://localhost:3000/api/recetas/2
+
+
+### // crea una nueva receta
+
+POST http://localhost:3000/api/recetas
+Content-Type: application/json
+
+{"titulo": "Chips de verduras",
+"ingredientes": "Calabacín,Zanahoria,Boniato,Calabaza,Nabo,AOVE,pimienta negra, ajo en polvo, cúrcuma, etc.",
+"urlFotos": "https://www.centrojuliafarre.es/wp-content/uploads/2018/07/chips-verduras.jpg",
+"descripcion": "Buenas fritada de verduras",
+"Fecha_inscripcion": "2021-12-14",
+"autor": "Ivan",
+"modoDeCocinado": "Pelar y cortar todas las verduras en láminas muy finas con ayuda de una mandolina,Secarlas varias veces con papel de cocina para que se absorba toda el agua,En un bol mezclar una c/s de aceite de oliva, pimienta negra, ajo en polvo y cúrcuma, Agregar las chips de verduras y empaparlas bien con la mezcla,Precalentar el horno a 120º y colocarla las chips(sin apelmazar, unas separadas de otras) en una bandeja de horno con papel de horno untado con un poco de aceite para que no se peguen.Dejar que se deshidraten las verduras durante 45’-1h (depende de lo crujientes que las queramos),Servir con un poco de sal."
+}
+
+
+### // actualiza una receta segun su id
+
+PUT http://localhost:3000/api/recetas/6
+Content-Type: application/json
+
+{
+"titulo": "Chips de verduras",
+"ingredientes": "Calabacín,Zanahoria,Boniato,Calabaza,Nabo,AOVE,pimienta negra, ajo en polvo, cúrcuma, etc.",
+"urlFotos": "https://www.centrojuliafarre.es/wp-content/uploads/2018/07/chips-verduras.jpg",
+"descripcion": "Buenas fritada de verduras",
+"Fecha_inscripcion": "2021-10-01",
+"autor": "Pablo",
+"modoDeCocinado": "Pelar y cortar todas las verduras en láminas muy finas con ayuda de una mandolina,Secarlas varias veces con papel de cocina para que se absorba toda el agua,En un bol mezclar una c/s de aceite de oliva, pimienta negra, ajo en polvo y cúrcuma, Agregar las chips de verduras y empaparlas bien con la mezcla,Precalentar el horno a 120º y colocarla las chips(sin apelmazar, unas separadas de otras) en una bandeja de horno con papel de horno untado con un poco de aceite para que no se peguen.Dejar que se deshidraten las verduras durante 45’-1h (depende de lo crujientes que las queramos),Servir con un poco de sal."
+}
+
+
+### // borra una receta segun su id
+
+DELETE http://localhost:3000/api/recetas/7
+
+//Fin de RECETAS
+
+// CATEGORIAS
+
+### //obtiene todas las categorias
+
+GET http://localhost:3000/api/categorias
 
 ###
 
-GET http://localhost:3000/api/recetas
+GET http://localhost:3000/api/categorias/2
+
+###
+GET http://localhost:3000/api/recetas/categoria/1
+
+###
+
+POST http://localhost:3000/api/categorias
+Content-Type: application/json
+
+{
+    "nombre":"Peruana"
+}
+
+
+###
+
+DELETE http://localhost:3000/api/categorias/8
+
+
+//fin de CATEGORIAS
+
+
+
+
