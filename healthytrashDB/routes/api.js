@@ -6,10 +6,13 @@ const apiUsuariosRouter = require('./api/usuarios');
 const apiRecetasRouter = require('./api/recetas');
 const apiCategoriasRouter = require('./api/categorias');
 
+const { checkToken } = require('./middlewares')
+
+
 
 router.use('/usuarios', apiUsuariosRouter);
-router.use('/recetas', apiRecetasRouter);
-router.use('/categorias', apiCategoriasRouter);
+router.use('/recetas', checkToken, apiRecetasRouter);
+router.use('/categorias', checkToken, apiCategoriasRouter);
 
 
 

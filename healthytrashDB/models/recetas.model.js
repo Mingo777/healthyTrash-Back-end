@@ -12,6 +12,10 @@ const getRecetasById = (recetasId) => {
     return executeQueryOne('SELECT * FROM recetas WHERE id = ?', [recetasId]);
 };
 
+const getByUsuario = (usuarioId) => {
+    return executeQuery('SELECT * from recetas WHERE usuario_id = ?', [usuarioId]);
+}
+
 const createRecetas = ({ titulo, ingredientes, urlFotos, descripcion, Fecha_inscripcion, autor, modoDeCocinado }) => {
     return executeQuery('INSERT INTO recetas (titulo,ingredientes,urlFotos,descripcion,Fecha_inscripcion,autor,modoDeCocinado) VALUES (?,?,?,?,?,?,?)', [titulo, ingredientes, urlFotos, descripcion, Fecha_inscripcion, autor, modoDeCocinado])
 };
@@ -29,5 +33,5 @@ const deleteRecetasById = (recetasId) => {
 
 
 module.exports = {
-    getAllRecetas, getRecetasById, createRecetas, updateRecetas, deleteRecetasById, getRecetasByCategoria
+    getAllRecetas, getRecetasById, createRecetas, updateRecetas, deleteRecetasById, getRecetasByCategoria, getByUsuario
 }

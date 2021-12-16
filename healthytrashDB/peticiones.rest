@@ -11,16 +11,24 @@ POST http://localhost:3000/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "nombre": "Jose",
-    "apellidos": "Arcos",
-    "email": "Jose@gmail.com",
+    "nombre": "Carlos",
+    "apellidos": "Mingorance",
+    "email": "cmingo@gmail.com",
     "password": "12345",
-    "username": "Jose777"
+    "username": "mingo777"
 }
+
+
 
 ###
 
 POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "cmingo@gmail.com",
+    "password": "12345"
+}
 
 
 ### // actualiza un usuario con los datos que reciba en el body
@@ -47,10 +55,14 @@ DELETE http://localhost:3000/api/usuarios/12
 ### // devuelve todas las recetas
 
 GET http://localhost:3000/api/recetas
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMzLCJleHBpcmVkQXQiOjE2NDEzODc0OTMsImlhdCI6MTYzOTY1OTQ5M30.JsocH7pzhHTjhRN7V4qWkNCgOl_Qe1GCxAfXwfZ8Wqw
 
 ###/devuelve la receta por su id
 
 GET http://localhost:3000/api/recetas/2
+
+
+
 
 
 ### // crea una nueva receta

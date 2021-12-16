@@ -8,6 +8,11 @@ const create = ({ nombre, apellidos, email, password, username }) => {
     return executeQuery('INSERT INTO usuarios(nombre,apellidos,email,password,username) VALUES(?,?,?,?,?)', [nombre, apellidos, email, password, username]);
 };
 
+const getByEmail = (email) => {
+    return executeQueryOne('SELECT * FROM usuarios WHERE email = ?', [email]);
+};
+
+
 const getById = (usuarioId) => {
     return executeQueryOne('SELECT * FROM usuarios WHERE id = ?', [usuarioId]);
 };
@@ -22,7 +27,7 @@ const deleteById = (usuarioId) => {
 };
 
 
-module.exports = { getAll, create, getById, deleteById, update }
+module.exports = { getAll, create, getById, deleteById, update, getByEmail }
 
 
 

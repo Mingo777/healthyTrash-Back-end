@@ -2,7 +2,8 @@
 // fichero que maneja la ruta de los usuarios
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
-const { getAll, create, getById, deleteById, update } = require('../../models/usuarios.model');
+const { getAll, create, getById, deleteById, update, getByEmail } = require('../../models/usuarios.model');
+const { createToken } = require('../../utils');
 
 //TODO // poner aqui middleware
 router.get('/', async (req, res) => {
@@ -47,8 +48,18 @@ router.post('/registro', async (req, res) => {
 
 
 
-router.post('/login', (req, res) => {
-    res.send('Funciona ruta login')
+router.post('/login', async (req, res) => {
+    const usuario = await getByEmail(req.body.email);
+    if (!usuario) {
+        return res.json({ error: 'Error usuario y/o password Primer fallo' });
+    }
+    const comparaPassword = bcrypt.compareSync(req.body.password, usuario.password);
+    if (comparaPassword) {
+        res.json({ token: createToken(usuario) });
+    } else {
+        return res.json({ error: 'Error email y/o password segundo fallo' })
+    }
+
 })
 
 

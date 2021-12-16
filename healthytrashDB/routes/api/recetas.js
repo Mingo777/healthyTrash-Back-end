@@ -2,11 +2,13 @@
 
 // fichero que maneja la ruta de las recetas
 const router = require('express').Router();
-const { getAllRecetas, getRecetasById, createRecetas, deleteRecetasById, updateRecetas, getRecetasByCategoria } = require('../../models/recetas.model');
+const { getAllRecetas, getRecetasById, createRecetas, deleteRecetasById, updateRecetas, getRecetasByCategoria, getByUsuario } = require('../../models/recetas.model');
+const { checkToken } = require('../middlewares');
 
 
 router.get('/', async (req, res) => {
     try {
+        console.log(req.user);
         const result = await getAllRecetas();
         res.json(result);
     } catch (err) {
@@ -37,7 +39,12 @@ router.get('/categoria/:categoriaId', async (req, res) => {
     } catch (err) {
         res.json({ error: err.message })
     }
-})
+});
+
+/* router.get('/profile', checkToken, async (req, res) => {
+    const recetas = await getByUsuario(req.user.id);
+    res.json(recetas);
+}) */
 
 router.post('/', async (req, res) => {
     try {
