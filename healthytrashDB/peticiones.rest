@@ -55,11 +55,12 @@ DELETE http://localhost:3000/api/usuarios/12
 ### // devuelve todas las recetas
 
 GET http://localhost:3000/api/recetas
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMzLCJleHBpcmVkQXQiOjE2NDEzODc0OTMsImlhdCI6MTYzOTY1OTQ5M30.JsocH7pzhHTjhRN7V4qWkNCgOl_Qe1GCxAfXwfZ8Wqw
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMzLCJleHBpcmVkQXQiOjE2NDE2MjUzOTksImlhdCI6MTYzOTg5NzM5OX0.clMnX_tixnMBUPmxBIgUgB0_GnvUyq4Xo1yr-FYKbm4
 
 ###/devuelve la receta por su id
 
 GET http://localhost:3000/api/recetas/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMzLCJleHBpcmVkQXQiOjE2NDE2MjUzOTksImlhdCI6MTYzOTg5NzM5OX0.clMnX_tixnMBUPmxBIgUgB0_GnvUyq4Xo1yr-FYKbm4
 
 
 
@@ -69,36 +70,39 @@ GET http://localhost:3000/api/recetas/2
 
 POST http://localhost:3000/api/recetas
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMzLCJleHBpcmVkQXQiOjE2NDE2MjUzOTksImlhdCI6MTYzOTg5NzM5OX0.clMnX_tixnMBUPmxBIgUgB0_GnvUyq4Xo1yr-FYKbm4
 
 {"titulo": "Chips de verduras",
-"ingredientes": "Calabacín,Zanahoria,Boniato,Calabaza,Nabo,AOVE,pimienta negra, ajo en polvo, cúrcuma, etc.",
-"urlFotos": "https://www.centrojuliafarre.es/wp-content/uploads/2018/07/chips-verduras.jpg",
-"descripcion": "Buenas fritada de verduras",
+"ingredientes": "Calabacín, Zanahoria, Boniato, Calabaza, Nabo, AOVE, pimienta negra, ajo en polvo, cúrcuma, etc.",
+"urlFotos": "https://cdn.pixabay.com/photo/2010/12/13/10/05/berries-2277_960_720.jpg",
+"descripcion": "Buenas fritada de verduras con la que puedes hacer diversas cosas en la cocina",
 "Fecha_inscripcion": "2021-12-14",
 "autor": "Ivan",
-"modoDeCocinado": "Pelar y cortar todas las verduras en láminas muy finas con ayuda de una mandolina,Secarlas varias veces con papel de cocina para que se absorba toda el agua,En un bol mezclar una c/s de aceite de oliva, pimienta negra, ajo en polvo y cúrcuma, Agregar las chips de verduras y empaparlas bien con la mezcla,Precalentar el horno a 120º y colocarla las chips(sin apelmazar, unas separadas de otras) en una bandeja de horno con papel de horno untado con un poco de aceite para que no se peguen.Dejar que se deshidraten las verduras durante 45’-1h (depende de lo crujientes que las queramos),Servir con un poco de sal."
+"modoDeCocinado": "Pelar y cortar todas las verduras en láminas muy finas con ayuda de una mandolina, Secarlas varias veces con papel de cocina para que se absorba toda el agua, En un bol mezclar una c/s de aceite de oliva, pimienta negra, ajo en polvo y cúrcuma, Agregar las chips de verduras y empaparlas bien con la mezcla, Precalentar el horno a 120º y colocarla las chips(sin apelmazar, unas separadas de otras) en una bandeja de horno con papel de horno untado con un poco de aceite para que no se peguen.Dejar que se deshidraten las verduras durante 45’-1h (depende de lo crujientes que las queramos),Servir con un poco de sal."
 }
 
 
 ### // actualiza una receta segun su id
 
-PUT http://localhost:3000/api/recetas/6
+PUT http://localhost:3000/api/recetas/9
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMzLCJleHBpcmVkQXQiOjE2NDE2MjUzOTksImlhdCI6MTYzOTg5NzM5OX0.clMnX_tixnMBUPmxBIgUgB0_GnvUyq4Xo1yr-FYKbm4
 
 {
-"titulo": "Chips de verduras",
-"ingredientes": "Calabacín,Zanahoria,Boniato,Calabaza,Nabo,AOVE,pimienta negra, ajo en polvo, cúrcuma, etc.",
-"urlFotos": "https://www.centrojuliafarre.es/wp-content/uploads/2018/07/chips-verduras.jpg",
-"descripcion": "Buenas fritada de verduras",
-"Fecha_inscripcion": "2021-10-01",
-"autor": "Pablo",
-"modoDeCocinado": "Pelar y cortar todas las verduras en láminas muy finas con ayuda de una mandolina,Secarlas varias veces con papel de cocina para que se absorba toda el agua,En un bol mezclar una c/s de aceite de oliva, pimienta negra, ajo en polvo y cúrcuma, Agregar las chips de verduras y empaparlas bien con la mezcla,Precalentar el horno a 120º y colocarla las chips(sin apelmazar, unas separadas de otras) en una bandeja de horno con papel de horno untado con un poco de aceite para que no se peguen.Dejar que se deshidraten las verduras durante 45’-1h (depende de lo crujientes que las queramos),Servir con un poco de sal."
+"titulo": "Arroz frito con verduras ",
+"ingredientes": "1 caldo vegetal en cacitos Knorr o caldo de pollo Knorr, 500 g de arroz, 2 cucharadas de salsa de soja, 1 pimiento rojo morrón, 1 pimiento amarillo morrón, 150 g de guisantes frescos verdes o congelados, descongelados previamente, 1 huevo ",
+"urlFotos": "https://cdn.pixabay.com/photo/2017/07/16/11/57/fried-2509089__340.jpg",
+"descripcion": "El arroz frito es un plato de la cocina china. Básicamente, consiste en un arroz cocido que se saltea a fuego alto y muy rápido en un wok con verduras como cebolla china, raíces chinas.",
+"Fecha_inscripcion": "2021-11-11",
+"autor": "Javier",
+"modoDeCocinado": "Cortamos en rodajas las cebollas y las cebolletas. Cortamos los pimientos morrones en tiras. Batimos un poco el huevo. Disolvemos el Cacito de Caldo Vegetal o de Caldo de Pollo en 1 litro de agua, añadimos el arroz lavado, llevamos a ebullición, bajamos el fuego y cocinamos con la olla bien tapada durante unos 15 minutos o hasta que el arroz esté tierno. Retiramos el arroz del fuego y lo separamos con un tenedor. En una sartén grande, calentamos aceite de oliva y freímos la cebolla y los pimientos morrones hasta que estén un poco dorados y tiernos. Añadimos el arroz, los guisantes verdes y la salsa de soja. Freímos todo junto a fuego medio-fuerte durante unos 4 minutos. Añadimos el huevo y removemos rápidamente. Cocinamos 1 minuto más."
 }
 
 
 ### // borra una receta segun su id
 
-DELETE http://localhost:3000/api/recetas/7
+DELETE http://localhost:3000/api/recetas/13
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMzLCJleHBpcmVkQXQiOjE2NDE2MjUzOTksImlhdCI6MTYzOTg5NzM5OX0.clMnX_tixnMBUPmxBIgUgB0_GnvUyq4Xo1yr-FYKbm4
 
 //Fin de RECETAS
 
@@ -131,6 +135,37 @@ DELETE http://localhost:3000/api/categorias/8
 
 
 //fin de CATEGORIAS
+
+
+// Blog
+
+
+
+###
+
+GET http://localhost:3000/api/blog
+
+
+###
+
+POST http://localhost:3000/api/blog
+Content-Type: application/json
+
+{
+    "nombre":"Jose Francisco de la sierra",
+    "titulo": "Esto si que es un buen pulpo",
+    "descripcion":"Me han dicho que cocer el pulpo en la olla a presión es muy fácil y queda muy bien, pero no recuerdo cuanto tiempo debe estar cociendose.Si hay alguien que pueda darme la receta se lo agradeceré.",
+    "imagen":"https://cdn.pixabay.com/photo/2015/04/12/22/08/food-719680__340.jpg",
+    "fecha":"2021-12-22"
+}
+
+
+###
+
+DELETE http://localhost:3000/api/blog/4
+
+
+// fin de Blog
 
 
 

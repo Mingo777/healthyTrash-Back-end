@@ -17,7 +17,7 @@ const getByUsuario = (usuarioId) => {
 }
 
 const createRecetas = ({ titulo, ingredientes, urlFotos, descripcion, Fecha_inscripcion, autor, modoDeCocinado }) => {
-    return executeQuery('INSERT INTO recetas (titulo,ingredientes,urlFotos,descripcion,Fecha_inscripcion,autor,modoDeCocinado) VALUES (?,?,?,?,?,?,?)', [titulo, ingredientes, urlFotos, descripcion, Fecha_inscripcion, autor, modoDeCocinado])
+    return executeQuery('INSERT INTO recetas (titulo,ingredientes,urlFotos,descripcion,Fecha_inscripcion,autor,modoDeCocinado) VALUES (?,?,?,?,?,?,?)', [titulo, ingredientes, urlFotos, descripcion, Fecha_inscripcion, autor, modoDeCocinado,])
 };
 
 const updateRecetas = (recetasId, { titulo, ingredientes, urlFotos, descripcion, Fecha_inscripcion, autor, modoDeCocinado }) => {
