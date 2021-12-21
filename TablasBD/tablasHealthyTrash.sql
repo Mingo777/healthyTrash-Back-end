@@ -16,6 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `blog`
+--
+
+DROP TABLE IF EXISTS `blog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blog` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `titulo` varchar(45) NOT NULL,
+  `descripcion` mediumtext NOT NULL,
+  `imagen` varchar(100) NOT NULL,
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blog`
+--
+
+LOCK TABLES `blog` WRITE;
+/*!40000 ALTER TABLE `blog` DISABLE KEYS */;
+INSERT INTO `blog` VALUES (1,'Fernando Gonzalez','Mi primera paella','Lo principal que debe tener en cuenta es que LA CANTIDAD DE PAELLA QUE PODEMOS PREPARAR ESTA CONDICIONADA POR EL RECIPIENTE DONDE LA PREPAREMOS y va a ser el recipiente el que nos indique la cantidad de agua (o caldo), arroz y demás que precisa nuestra paella. Desconfien por principio de toda receta de paella que les de una lista de ingredientes con xxx gramos de arróz, xxx centilitros de caldo, etc. Así no se hace una paella.','https://cdn.pixabay.com/photo/2016/01/29/14/02/paella-1168003__340.jpg','2021-12-13'),(2,'Manuael Salazar','Cuando haces buena broza.','A ver si alguien tiene recetas para hacer caldo que hace un frio de cojones!!! Normalmente le echo lo tipico, pollo, hueso de jamon, etc pero no tiene nada que ver con los caldos que he probado por ahi','https://cdn.pixabay.com/photo/2018/10/25/19/15/goulash-3773134__340.jpg','2021-12-17'),(3,'Jose Francisco de la sierra','Esto si que es un buen pulpo','Me han dicho que cocer el pulpo en la olla a presión es muy fácil y queda muy bien, pero no recuerdo cuanto tiempo debe estar cociendose.Si hay alguien que pueda darme la receta se lo agradeceré.','https://cdn.pixabay.com/photo/2015/04/12/22/08/food-719680__340.jpg','2021-12-22');
+/*!40000 ALTER TABLE `blog` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categorias`
 --
 
@@ -58,7 +86,7 @@ CREATE TABLE `recetas` (
   `categoria_id` int DEFAULT NULL,
   `usuario_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +115,7 @@ CREATE TABLE `usuarios` (
   `username` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +124,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (32,'Jose','Arcos','Jose@gmail.com','$2a$10$JTPUeYTglVuYWE/LRyQ3rupiue8cROjayqNs6Os2vY9RsdyjTBmAS','Jose777'),(33,'Carlos','Mingorance','cmingo@gmail.com','$2a$10$GF9r/FiUVIVcYZVnXoFf6u4DeDt40a9QuKe.If0UYmI2N6kCyOUeq','mingo777'),(35,'Javier','Martin','marti@gamil.com','$2a$10$4tLg2HlOMDsCfDyRbXAMoucVAAySUI6Px/PhDchfVG6YBzogU2Xgy','marti777'),(36,'Maria','De la Cruz','mari@gmail.com','$2a$10$4BmVNdZeoIRvsOyKrVQjQezAdrGkTr7Jd0m307wazWo3sj9isTjQC','mari777'),(37,'Francisco','huete','fran@gmail.com','$2a$10$MoB15mV777dAlc6Va7gDWe.Up0Zhy0OiIc0tNWyQfhvEBRgqopaka','fran777');
+INSERT INTO `usuarios` VALUES (32,'Jose','Arcos','Jose@gmail.com','$2a$10$JTPUeYTglVuYWE/LRyQ3rupiue8cROjayqNs6Os2vY9RsdyjTBmAS','Jose777'),(33,'Carlos','Mingorance','cmingo@gmail.com','$2a$10$GF9r/FiUVIVcYZVnXoFf6u4DeDt40a9QuKe.If0UYmI2N6kCyOUeq','mingo777'),(35,'Javier','Martin','marti@gamil.com','$2a$10$4tLg2HlOMDsCfDyRbXAMoucVAAySUI6Px/PhDchfVG6YBzogU2Xgy','marti777'),(36,'Maria','De la Cruz','mari@gmail.com','$2a$10$4BmVNdZeoIRvsOyKrVQjQezAdrGkTr7Jd0m307wazWo3sj9isTjQC','mari777'),(37,'Francisco','huete','fran@gmail.com','$2a$10$MoB15mV777dAlc6Va7gDWe.Up0Zhy0OiIc0tNWyQfhvEBRgqopaka','fran777'),(39,'Manuel','Sanchez','san@gmail.com','$2a$10$FuZX5IYIwM7CLSBXxiwV6eSuBxwyTgO4vZarFo3rK97W4cqEMLZpy','san777');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-20 10:06:01
+-- Dump completed on 2021-12-21 10:10:38
